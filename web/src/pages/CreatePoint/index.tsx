@@ -1,6 +1,8 @@
 import React, { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import axios from 'axios';
 import { LeafletMouseEvent } from 'leaflet'
@@ -141,7 +143,7 @@ const CreatePoint = () => {
 
     await api.post('points', data);
 
-    alert('Ponto de coleta criado');
+    toast.success('Ponto de coleta criado');
     history.push('/');
   }
 
